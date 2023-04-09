@@ -1,0 +1,21 @@
+<ng-container>
+  <div class="wizard">
+    <div class="wizard-step">
+      <div class="wizard-step-title">
+        {{ activeStepInfo.title }}
+      </div>
+      <div class="wizard-step-description">
+        {{ activeStepInfo.description }}
+      </div>
+      <div class="wizard-step-container">
+        <ng-template ngxWizardStep></ng-template>
+      </div>
+    </div>
+    <div class="wizard-actions">
+      <button *ngIf="!isFirstStep" (click)="goToPrevStep()"> Previous </button>
+      <button *ngIf="!isLastStep" [disabled]="!activeStepInfo.dataValidated" (click)="goToNextStep()"> Next </button>
+      <button *ngIf="isLastStep" (click)="finishWizard()"> Finish </button>
+      <button (click)="cancelWizard()"> Cancel </button>
+    </div>
+  </div>
+</ng-container>

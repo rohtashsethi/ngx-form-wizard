@@ -1,0 +1,24 @@
+:host {
+  .wizard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+
+    &-step {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 15px;
+
+      &-container {
+        height: 300px;
+        overflow: auto;
+      }
+
+      &-title {
+        font-weight: 700;
+      }
+    }
+  }
+}
