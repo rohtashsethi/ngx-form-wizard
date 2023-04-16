@@ -3,7 +3,7 @@ import { Step1Component } from './wizard-steps/step1.component';
 import { Step2Component } from './wizard-steps/step2.component';
 import { Step3Component } from './wizard-steps/step3.component';
 import { Step4Component } from './wizard-steps/step4.component';
-import { IWizardStep, NgxWizardService } from 'projects/ngx-wizard/src/public-api';
+import { IStepperOptions, IWizardStep, NgxWizardService } from 'projects/ngx-wizard/src/public-api';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +19,11 @@ export class AppComponent {
     { id: 3, title: 'Work Experience', description: 'Work Description', data: null, component: Step3Component },
     { id: 4, title: 'Review', description: 'Review Description', data: null, component: Step4Component }
   ];
+
+  stepperOptions: IStepperOptions = {
+    custom: false,
+    position: 'right'
+  };
 
   constructor(private wizardService: NgxWizardService) {}
 
@@ -37,5 +42,13 @@ export class AppComponent {
       step.data = null;
       step.dataValidated = false;
     });
+  }
+
+  getObjectKeys(obj: any) {
+    return obj ? Object.keys(obj): [];
+  }
+
+  print(a: any) {
+    console.log(a);
   }
 }

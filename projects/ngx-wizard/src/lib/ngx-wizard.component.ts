@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, OnDestroy, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, OnDestroy, Output, ViewChild, HostBinding } from '@angular/core';
 import { NgxWizardStepDirective } from './ngx-wizard-step.directive';
-import { IWizardStep, IWizardStepBase } from './ngx-wizard.model';
+import { IStepperOptions, IWizardStep, IWizardStepBase, STEPPER_DEFAULTS } from './ngx-wizard.model';
 import { NgxWizardService } from './ngx-wizard.service';
 import { Subscription } from 'rxjs';
 
@@ -12,11 +12,14 @@ import { Subscription } from 'rxjs';
 export class NgxWizardComponent implements OnInit, OnDestroy {
 
   @Input() steps: IWizardStep[] = [];
+  @Input() stepperOptions: IStepperOptions = STEPPER_DEFAULTS;
 
   @Output() finished: EventEmitter<void> = new EventEmitter();
   @Output() cancelled: EventEmitter<void> = new EventEmitter();
 
   @ViewChild(NgxWizardStepDirective, { static: true }) wizardStep!: NgxWizardStepDirective;
+
+  @HostBinding('class.stepper-positioned-right') stepperRight = false;
 
   noOfSteps: number = 0;
   activeStep: number = 0;
@@ -24,6 +27,10 @@ export class NgxWizardComponent implements OnInit, OnDestroy {
   isFirstStep: boolean = true;
   activeStepInfo: IWizardStep = <IWizardStep>{};
   componentChangesSub: Subscription | undefined;
+
+  // Stepper variables
+  stepperClass: string = 'stepper';
+  useCustomStepper: boolean = false;
 
   constructor(private wizardService: NgxWizardService) {}
 
@@ -60,6 +67,17 @@ export class NgxWizardComponent implements OnInit, OnDestroy {
     this.cancelled.emit();
   }
 
+  handleStepperClick(step: IWizardStep): void {
+    if (step.id >= this.activeStep) {
+      return;
+    }
+
+    const newActiveStep = this.steps[step.id - 1];
+    this.activeStep = step.id;
+    this.activeStepInfo = newActiveStep;
+    this.updateWizard();
+  }
+
   /************************* Private Methods **************************************/
 
   private wizardInit() {
@@ -71,6 +89,12 @@ export class NgxWizardComponent implements OnInit, OnDestroy {
       this.isFirstStep = true;
       this.isLastStep = false;
       this.loadWizardStep();
+
+      if (this.stepperOptions) {
+        this.stepperRight = this.stepperOptions?.position === 'right';
+        this.stepperClass += this.stepperRight ? ' positioned-right' : '';
+        this.useCustomStepper = !!this.stepperOptions?.custom;
+      }
     }
   }
 

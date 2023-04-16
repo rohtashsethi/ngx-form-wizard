@@ -19,3 +19,15 @@ export interface IWizardStepBase {
   stepConfig: IWizardStep;
   allStepConfig: IWizardStep[];
 }
+
+export type StepperPosition = 'top' | 'right';
+
+export interface IStepperOptions {
+  custom: boolean;
+  position: StepperPosition;
+}
+
+export const STEPPER_DEFAULTS: IStepperOptions = {
+  custom: false,
+  position: 'right'
+} as const;

@@ -1,4 +1,8 @@
 <ng-container>
+  <ng-container *ngIf="useCustomStepper; else stepperDefault">
+    <ng-content></ng-content>
+  </ng-container>
+
   <div class="wizard">
     <div class="wizard-step">
       <div class="wizard-step-title">
@@ -19,3 +23,19 @@
     </div>
   </div>
 </ng-container>
+
+<ng-template #stepperDefault>
+  <div class="{{ stepperClass }}">
+    <div
+      class="step"
+      *ngFor="let step of steps"
+      [class.active]="step.id === activeStep"
+      [class.clickable]="step.id < activeStep"
+      (click)="handleStepperClick(step)"
+      >
+      <span>{{ step.id }}</span>
+      .
+      <span>{{ step.title }}</span>
+    </div>
+  </div>
+</ng-template>
