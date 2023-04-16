@@ -1,4 +1,41 @@
 :host {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &.stepper-positioned-right {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .stepper {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid;
+
+    &.positioned-right {
+      width: 250px;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      & + .wizard {
+        width: 400px;
+      }
+    }
+
+    .step {
+      padding: .75rem 1rem;
+
+      &.active {
+        font-weight: 700;
+      }
+
+      &.clickable {
+        cursor: pointer;
+      }
+    }
+  }
+
   .wizard {
     display: flex;
     flex-direction: column;
