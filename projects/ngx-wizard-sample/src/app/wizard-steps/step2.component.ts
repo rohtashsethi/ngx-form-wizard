@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
-import { NgxWizardService, WizardStepBaseComponent } from "projects/ngx-wizard/src/public-api";
+import { NgxWizardService, WizardStepBaseComponent } from "ngx-wizard";
 
 @Component({
   selector: 'step2',

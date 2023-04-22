@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IWizardStep, NgxWizardService, WizardStepBaseComponent } from "projects/ngx-wizard/src/public-api";
+import { IWizardStep, NgxWizardService, WizardStepBaseComponent } from "ngx-wizard";
 
 @Component({
   selector: 'step4',
