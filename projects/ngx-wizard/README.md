@@ -1,24 +1,12 @@
 # NgxWizard
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+A customizable wizard creation module for Angular with below features:
 
-## Code scaffolding
-
-Run `ng generate component component-name --project ngx-wizard` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-wizard`.
-> Note: Don't forget to add `--project ngx-wizard` or else it will be added to the default project in your `angular.json` file. 
-
-## Build
-
-Run `ng build ngx-wizard` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build ngx-wizard`, go to the dist folder `cd dist/ngx-wizard` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ngx-wizard` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- N-step Configuration Support
+- Dynamic Component creation of steps
+- Step Level Data Validation Check
+- Step Level Data Caching
+- Default stepper layout
+- Custom stepper support using content projection
+- Available stepper positions - top and right
+- Navigation support in stepper

@@ -1,6 +1,24 @@
 {
-  "name": "ngx-wizard",
+  "name": "ngxx-wizard",
   "version": "14.0.0",
+  "description": "A customizable N-step Wizard Library for Angular",
+  "author": "Rohtash Sethi <rohtash.sethi@gmail.com> (rohtashsethi.github.io)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rohtashsethi/ngx-wizard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rohtashsethi/ngx-wizard/issues"
+  },
+  "homepage": "https://github.com/rohtashsethi/ngx-wizard",
+  "keywords": [
+    "angular",
+    "javascript",
+    "typescript",
+    "wizard",
+    "n-step-wizard"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^14.1.0",
     "@angular/core": "^14.1.0"
