@@ -1,4 +1,4 @@
-:host {
+.ngx-wizard {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -18,7 +18,7 @@
       flex-direction: column;
       justify-content: flex-start;
 
-      & + .wizard {
+      &+.wizard {
         width: 400px;
       }
     }

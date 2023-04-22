@@ -21,7 +21,7 @@ export class AppComponent {
   ];
 
   stepperOptions: IStepperOptions = {
-    custom: false,
+    custom: true,
     position: 'right'
   };
 
