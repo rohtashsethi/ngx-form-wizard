@@ -1,28 +1,24 @@
 import { Component } from "@angular/core";
-import { FormGroup } from "@angular/forms";
-import { IWizardStep, IWizardStepBase, NgxWizardService } from "projects/ngx-wizard/src/public-api";
+import { IWizardStep, NgxWizardService, WizardStepBaseComponent } from "projects/ngx-wizard/src/public-api";
 
 @Component({
   selector: 'step4',
   template: `
     <div>
-      <ng-container *ngFor="let item of allStepConfig">
+      <ng-container *ngFor="let item of prevSteps">
         <label>{{ item.title }}</label>
         <pre>{{ item.data | json }}</pre>
       </ng-container>
     </div>
   `
 })
-export class Step4Component implements IWizardStepBase {
-  stepIdx = 3;
-  stepConfig: IWizardStep = <IWizardStep>{};
-  allStepConfig: IWizardStep[] = [];
-  form!: FormGroup;
+export class Step4Component extends WizardStepBaseComponent {
 
-  constructor(private wizardService: NgxWizardService) {}
+  prevSteps: IWizardStep[] = [];
 
-  ngOnInit(): void {
-    const stepConfiguration = this.wizardService.getStepConfiguration();
-    this.allStepConfig = stepConfiguration.slice(0, this.stepIdx);
+  constructor(private wizardService: NgxWizardService) {
+    super(4, wizardService.getStepConfiguration());
+    this.prevSteps = this.allStepConfig.slice(0, this.stepNo);
   }
+
 }

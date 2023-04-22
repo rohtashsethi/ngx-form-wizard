@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, OnDestroy, Output, ViewChild, HostBinding } from '@angular/core';
 import { NgxWizardStepDirective } from './ngx-wizard-step.directive';
-import { IStepperOptions, IWizardStep, IWizardStepBase, STEPPER_DEFAULTS } from './ngx-wizard.model';
+import { IStepperOptions, IWizardStep, STEPPER_DEFAULTS } from './ngx-wizard.model';
 import { NgxWizardService } from './ngx-wizard.service';
 import { Subscription } from 'rxjs';
+import { WizardStepBaseComponent } from './ngx-wizard-step-base.component';
 
 @Component({
   selector: 'ngx-wizard',
@@ -101,28 +102,28 @@ export class NgxWizardComponent implements OnInit, OnDestroy {
   private loadWizardStep(): void {
     const viewContaianerRef = this.wizardStep.viewContaianerRef;
     viewContaianerRef.clear();
-    const componentRef = viewContaianerRef.createComponent<IWizardStepBase>(this.activeStepInfo?.component);
+    const componentRef = viewContaianerRef.createComponent<WizardStepBaseComponent>(this.activeStepInfo?.component);
     this.stepComponentInit(componentRef.instance);
   }
 
-  private stepComponentInit(component: IWizardStepBase): void {
+  private stepComponentInit(component: WizardStepBaseComponent): void {
     // Initialize component input properties
-    component.stepIdx = this.activeStepInfo.id;
-    component.stepConfig = this.activeStepInfo;
+    component.stepNo = this.activeStepInfo.id;
     component.allStepConfig = this.steps;
 
-    if (component.form) {
-      component.form?.patchValue(this.activeStepInfo.data);
+    if (component.isFormExists && component.form) {
+      component.form.patchValue(this.activeStepInfo.data);
       this.componentChangesSub = component.form?.valueChanges.subscribe({
         next: data => this.handleFormValueChanges(data, component)
       });
     }
   }
 
-  private handleFormValueChanges(data: any, component: IWizardStepBase): void {
-    if (component.stepConfig && component.form) {
-      component.stepConfig.dataValidated = component.form.valid;
-      component.stepConfig.data = data;
+  private handleFormValueChanges(data: any, component: WizardStepBaseComponent): void {
+    if (component.allStepConfig.length && component.form) {
+      const stepConfig = component.getCurrentStepConfig();
+      stepConfig.dataValidated = component.form.valid;
+      stepConfig.data = data;
     }
   }
 

@@ -1,5 +1,5 @@
 import { Type } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { FormControl } from "@angular/forms";
 
 export interface IWizardStep {
   id: number;
@@ -10,14 +10,8 @@ export interface IWizardStep {
   dataValidated?: boolean;
 }
 
-/**
- * This interface needs to be implemented by every Wizard Step Component
- */
-export interface IWizardStepBase {
-  stepIdx: number;
-  form: FormGroup;
-  stepConfig: IWizardStep;
-  allStepConfig: IWizardStep[];
+export interface WizardFormControls {
+  [key: string]: FormControl;
 }
 
 export type StepperPosition = 'top' | 'right';
