@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build ngx-wizard-sample",
     "build:lib": "ng build ngx-wizard",
+    "build:lib:watch": "ng build ngx-wizard --watch",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
