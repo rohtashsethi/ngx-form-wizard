@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, OnDestroy, Output, ViewChild, HostBinding } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, OnDestroy, Output, ViewChild, HostBinding, ChangeDetectionStrategy, ViewEncapsulation, TemplateRef, ContentChild } from '@angular/core';
 import { NgxWizardStepDirective } from './ngx-wizard-step.directive';
 import { IStepperOptions, IWizardStep, STEPPER_DEFAULTS } from './ngx-wizard.model';
 import { NgxWizardService } from './ngx-wizard.service';
@@ -8,12 +8,22 @@ import { WizardStepBaseComponent } from './ngx-wizard-step-base.component';
 @Component({
   selector: 'ngx-wizard',
   templateUrl: './ngx-wizard.component.html',
-  styleUrls: ['./ngx-wizard.component.scss']
+  styleUrls: ['./ngx-wizard.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    class: 'ngx-wizard'
+  }
 })
 export class NgxWizardComponent implements OnInit, OnDestroy {
 
   @Input() steps: IWizardStep[] = [];
   @Input() stepperOptions: IStepperOptions = STEPPER_DEFAULTS;
+
+  @Input() prevActionBtnLabel: string = 'Previous';
+  @Input() nextActionBtnLabel: string = 'Next';
+  @Input() finishActionBtnLabel: string = 'Finish';
+  @Input() cancelActionBtnLabel: string = 'Cancel';
 
   @Output() finished: EventEmitter<void> = new EventEmitter();
   @Output() cancelled: EventEmitter<void> = new EventEmitter();
@@ -30,7 +40,7 @@ export class NgxWizardComponent implements OnInit, OnDestroy {
   componentChangesSub: Subscription | undefined;
 
   // Stepper variables
-  stepperClass: string = 'stepper';
+  stepperClass: string = '';
   useCustomStepper: boolean = false;
 
   constructor(private wizardService: NgxWizardService) {}
@@ -93,7 +103,7 @@ export class NgxWizardComponent implements OnInit, OnDestroy {
 
       if (this.stepperOptions) {
         this.stepperRight = this.stepperOptions?.position === 'right';
-        this.stepperClass += this.stepperRight ? ' positioned-right' : '';
+        this.stepperClass = this.stepperRight ? 'positioned-right' : '';
         this.useCustomStepper = !!this.stepperOptions?.custom;
       }
     }

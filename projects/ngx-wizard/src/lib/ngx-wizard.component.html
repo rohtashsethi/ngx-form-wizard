@@ -15,17 +15,37 @@
         <ng-template ngxWizardStep></ng-template>
       </div>
     </div>
-    <div class="wizard-actions">
-      <button *ngIf="!isFirstStep" (click)="goToPrevStep()"> Previous </button>
-      <button *ngIf="!isLastStep" [disabled]="!activeStepInfo.dataValidated" (click)="goToNextStep()"> Next </button>
-      <button *ngIf="isLastStep" (click)="finishWizard()"> Finish </button>
-      <button (click)="cancelWizard()"> Cancel </button>
+    <div class="wizard-action">
+      <button
+        *ngIf="!isFirstStep"
+        class="wizard-action-btn prev-btn"
+        (click)="goToPrevStep()">
+        {{ prevActionBtnLabel }}
+      </button>
+      <button
+        *ngIf="!isLastStep"
+        class="wizard-action-btn next-btn"
+        [disabled]="!activeStepInfo.dataValidated"
+        (click)="goToNextStep()">
+        {{ nextActionBtnLabel }}
+      </button>
+      <button
+        *ngIf="isLastStep"
+        class="wizard-action-btn finish-btn"
+        (click)="finishWizard()">
+        {{ finishActionBtnLabel }}
+      </button>
+      <button
+        class="wizard-action-btn cancel-btn"
+        (click)="cancelWizard()">
+        {{ cancelActionBtnLabel }}
+      </button>
     </div>
   </div>
 </ng-container>
 
 <ng-template #stepperDefault>
-  <div class="{{ stepperClass }}">
+  <div class="stepper" [class]="stepperClass">
     <div
       class="step"
       *ngFor="let step of steps"
@@ -33,9 +53,7 @@
       [class.clickable]="step.id < activeStep"
       (click)="handleStepperClick(step)"
       >
-      <span>{{ step.id }}</span>
-      .
-      <span>{{ step.title }}</span>
+      <span>{{ step.id }}</span>. <span>{{ step.title }}</span>
     </div>
   </div>
 </ng-template>
