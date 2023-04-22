@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { IWizardStep, IWizardStepBase, NgxWizardService } from "projects/ngx-wizard/src/public-api";
+import { FormControl, Validators } from "@angular/forms";
+import { NgxWizardService, WizardStepBaseComponent } from "projects/ngx-wizard/src/public-api";
 
 @Component({
   selector: 'step3',
@@ -13,14 +13,13 @@ import { IWizardStep, IWizardStepBase, NgxWizardService } from "projects/ngx-wiz
     </form>
   `
 })
-export class Step3Component implements IWizardStepBase {
-  stepIdx = 2;
-  allStepConfig: IWizardStep[] = [];
-  stepConfig: IWizardStep = <IWizardStep>{};
-  form = new FormGroup({
-    company: new FormControl('', [Validators.required])
-  });
+export class Step3Component extends WizardStepBaseComponent {
 
-  constructor(private wizardService: NgxWizardService) {}
+  constructor(private wizardService: NgxWizardService) {
+    const formcontrols = {
+      'company':  new FormControl('', [ Validators.required ])
+    };
+    super(3, wizardService.getStepConfiguration(), true, formcontrols);
+  }
 
 }
