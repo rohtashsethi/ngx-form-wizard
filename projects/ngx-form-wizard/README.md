@@ -153,7 +153,7 @@ export class AppComponent {
 
 ## Demo
 
-
+https://ngx-form-wizard-demo.stackblitz.io
 
 
 ## Support
