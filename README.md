@@ -154,7 +154,7 @@ export class AppComponent {
 
 ## Demo
 
-https://ngx-form-wizard-demo.stackblitz.io
+<a href="https://stackblitz.com/edit/ngx-form-wizard-demo" target="_blank"> Checkout how it works in Stackblitz </a>
 
 
 ## Support
