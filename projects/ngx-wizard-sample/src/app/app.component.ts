@@ -3,7 +3,7 @@ import { Step1Component } from './wizard-steps/step1.component';
 import { Step2Component } from './wizard-steps/step2.component';
 import { Step3Component } from './wizard-steps/step3.component';
 import { Step4Component } from './wizard-steps/step4.component';
-import { IStepperOptions, IWizardStep, NgxWizardService } from 'projects/ngx-wizard/src/public-api';
+import { IStepperOptions, IWizardStep, FormWizardService } from 'ngx-form-wizard';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +25,7 @@ export class AppComponent {
     position: 'right'
   };
 
-  constructor(private wizardService: NgxWizardService) {}
+  constructor(private wizardService: FormWizardService) {}
 
   onFinish(): void {
     alert('Wizard Finished!!');
@@ -38,7 +38,7 @@ export class AppComponent {
   }
 
   resetWizard(): void {
-    this.wizardService.getStepConfiguration().forEach(step => {
+    this.wizardService.getSteps().forEach(step => {
       step.data = null;
       step.dataValidated = false;
     });

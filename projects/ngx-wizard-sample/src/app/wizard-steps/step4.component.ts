@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IWizardStep, NgxWizardService, WizardStepBaseComponent } from "ngx-wizard";
+import { IWizardStep, FormWizardService, FormWizardStepBaseComponent } from "ngx-form-wizard";
 
 @Component({
   selector: 'step4',
@@ -12,13 +12,13 @@ import { IWizardStep, NgxWizardService, WizardStepBaseComponent } from "ngx-wiza
     </div>
   `
 })
-export class Step4Component extends WizardStepBaseComponent {
+export class Step4Component extends FormWizardStepBaseComponent {
 
   prevSteps: IWizardStep[] = [];
 
-  constructor(private wizardService: NgxWizardService) {
-    super(4, wizardService.getStepConfiguration());
-    this.prevSteps = this.allStepConfig.slice(0, this.stepNo);
+  constructor(private wizardService: FormWizardService) {
+    super(4, wizardService.getSteps());
+    this.prevSteps = this.steps.slice(0, this.stepNo);
   }
 
 }

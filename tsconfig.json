@@ -12,8 +12,8 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "paths": {
-      "ngx-wizard": [
-        "dist/ngx-wizard"
+      "ngx-form-wizard": [
+        "dist/ngx-form-wizard"
       ]
     },
     "declaration": false,

@@ -1,5 +1,5 @@
 import { Type } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { FormArray, FormControl, FormGroup } from "@angular/forms";
 
 export interface IWizardStep {
   id: number;
@@ -10,8 +10,8 @@ export interface IWizardStep {
   dataValidated?: boolean;
 }
 
-export interface WizardFormControls {
-  [key: string]: FormControl;
+export interface IWizardControls {
+  [key: string]: FormControl | FormGroup | FormArray;
 }
 
 export type StepperPosition = 'top' | 'right';

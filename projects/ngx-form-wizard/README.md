@@ -1,4 +1,4 @@
-# NgxWizard
+# Ngx Form Wizard
 
 A customizable wizard creation module for Angular with below features:
 
@@ -10,3 +10,8 @@ A customizable wizard creation module for Angular with below features:
 - Custom stepper support using content projection
 - Available stepper positions - top and right
 - Navigation support in stepper
+
+
+# Demo
+
+https://stackblitz.com/edit/ngxx-wizard-demo

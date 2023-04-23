@@ -1,8 +1,8 @@
 import { Directive, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: '[ngxWizardStep]'
+  selector: '[formWizardStep]'
 })
-export class NgxWizardStepDirective {
+export class FormWizardStepDirective {
   constructor(public viewContaianerRef: ViewContainerRef) {}
 }

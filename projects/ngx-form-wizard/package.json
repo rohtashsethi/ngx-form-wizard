@@ -1,6 +1,6 @@
 {
-  "name": "ngxx-wizard",
-  "version": "14.0.0",
+  "name": "ngx-form-wizard",
+  "version": "1.0.0",
   "description": "A customizable N-step Wizard Library for Angular",
   "author": "Rohtash Sethi <rohtash.sethi@gmail.com> (rohtashsethi.github.io)",
   "repository": {
