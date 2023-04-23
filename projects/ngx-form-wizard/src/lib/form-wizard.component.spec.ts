@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxWizardComponent } from './ngx-wizard.component';
+import { FormWizardComponent } from './form-wizard.component';
 
-describe('NgxWizardComponent', () => {
-  let component: NgxWizardComponent;
-  let fixture: ComponentFixture<NgxWizardComponent>;
+describe('FormWizardComponent', () => {
+  let component: FormWizardComponent;
+  let fixture: ComponentFixture<FormWizardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NgxWizardComponent ]
+      declarations: [ FormWizardComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NgxWizardComponent);
+    fixture = TestBed.createComponent(FormWizardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

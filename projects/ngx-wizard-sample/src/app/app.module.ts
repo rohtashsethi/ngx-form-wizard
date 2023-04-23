@@ -9,7 +9,7 @@ import { Step2Component } from './wizard-steps/step2.component';
 import { Step3Component } from './wizard-steps/step3.component';
 import { Step4Component } from './wizard-steps/step4.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgxWizardModule } from 'ngx-wizard';
+import { FormWizardModule } from 'ngx-form-wizard';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { NgxWizardModule } from 'ngx-wizard';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgxWizardModule
+    FormWizardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

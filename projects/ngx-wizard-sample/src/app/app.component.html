@@ -1,10 +1,10 @@
-<ngx-wizard
+<ngx-form-wizard
   [steps]="steps"
   [stepperOptions]="stepperOptions"
   (finished)="onFinish()"
   (cancelled)="onCancel()">
   <ng-container [ngTemplateOutlet]="customStepper" [ngTemplateOutletContext]="{steps}"></ng-container>
-</ngx-wizard>
+</ngx-form-wizard>
 
 
 <ng-template #customStepper let-steps="steps">

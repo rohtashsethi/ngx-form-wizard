@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
-import { NgxWizardService, WizardStepBaseComponent } from "ngx-wizard";
+import { FormWizardService, FormWizardStepBaseComponent } from "ngx-form-wizard";
 
 @Component({
   selector: 'step2',
@@ -13,12 +13,12 @@ import { NgxWizardService, WizardStepBaseComponent } from "ngx-wizard";
     </form>
   `
 })
-export class Step2Component extends WizardStepBaseComponent {
+export class Step2Component extends FormWizardStepBaseComponent {
 
-  constructor(private wizardService: NgxWizardService) {
+  constructor(private wizardService: FormWizardService) {
     const formcontrols = {
       'college':  new FormControl('', [ Validators.required ])
     };
-    super(2, wizardService.getStepConfiguration(), true, formcontrols);
+    super(2, wizardService.getSteps(), true, formcontrols);
   }
 }
