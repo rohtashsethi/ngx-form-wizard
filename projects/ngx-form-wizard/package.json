@@ -1,22 +1,28 @@
 {
   "name": "ngx-form-wizard",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A customizable N-step Wizard Library for Angular",
   "author": "Rohtash Sethi <rohtash.sethi@gmail.com> (rohtashsethi.github.io)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rohtashsethi/ngx-wizard.git"
+    "url": "https://github.com/rohtashsethi/ngx-form-wizard.git"
   },
   "bugs": {
-    "url": "https://github.com/rohtashsethi/ngx-wizard/issues"
+    "url": "https://github.com/rohtashsethi/ngx-form-wizard/issues"
   },
-  "homepage": "https://github.com/rohtashsethi/ngx-wizard",
+  "homepage": "https://github.com/rohtashsethi/ngx-form-wizard",
   "keywords": [
     "angular",
     "javascript",
     "typescript",
     "wizard",
-    "n-step-wizard"
+    "forms",
+    "angular-wizard",
+    "angular-forms",
+    "angular-form-wizard",
+    "ngx-form-wizard",
+    "n-step-wizard",
+    "workflow"
   ],
   "license": "MIT",
   "peerDependencies": {
