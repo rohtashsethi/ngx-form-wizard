@@ -10,7 +10,18 @@ A minimal customizable angular library for generating n-step form wizard.
 <br>
 
 <p align="center">
-  
+  <a>
+    <img src="https://forthebadge.com/images/badges/made-with-typescript.svg" />
+  </a>
+  <a>
+    <img src="https://forthebadge.com/images/badges/open-source.svg" />
+  </a>
+  <a>
+    <img src="https://forthebadge.com/images/badges/powered-by-coffee.svg" />
+  </a>
+  <a>
+    <img src="https://forthebadge.com/images/badges/built-with-love.svg" />
+  </a>
 </p>
 
 <p align="center">
